@@ -21,12 +21,15 @@ interface ChallengesContextDTO {
 }
 
 interface ChallengeProviderProps {
-  children: ReactNode
+  children: ReactNode,
+  level: number,
+  currentExperience: number,
+  challengesCompleted: number,
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextDTO);
 
-export function ChallengesProvider({ children }: ChallengeProviderProps) {
+export function ChallengesProvider({ children, ...rest }: ChallengeProviderProps) {
 
   const [level, setLevel] = useState(1);
   const [currentExperience, setCurrentExperience] = useState(0);
